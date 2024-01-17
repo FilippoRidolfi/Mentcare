@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+  <style>
+    a {
+      background-color: #009688;
+      box-shadow: 0 5px 0 #009188;
+      color: white;
+      padding: 1em 1.5em;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    a:hover {
+      background-color: #009188;
+      cursor: pointer;
+    }
+
+    a:active {
+      box-shadow: none;
+      top: 5px;
+    }
+  </style>
+
+  <script>
+    $(document).ready(function () {
+      $('select').selectize({
+        sortField: 'text'
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div class="w3-container w3-teal" >
+  <h1 style="margin-left: 10%">Search and add new drug</h1>
+</div><br><br>
+<div style="float:left; display:block; width:50%;">
+<label style="width:20%; margin-left: 20%">Select drug:</label>
+
+<form method="GET" action="drugsInfo" style="width:80%; margin-left: 20%; display:flex">
+<select style="width:75%" name="uniqueDrug" id="uniqueDrug" class="js-example-basic-single">
+  <option th:each="drug : ${drugs}"
+          th:value="${drug.uniqueID}"
+          th:utext="${drug.name}">
+  </option>
+  <input type="hidden" name="uniqueID" th:value="${person.uniqueID}">
+</select>
+  <input type="submit" value="select"/>
+</form>
+  <br><br>
+</div><div style="float:left; display:block; width:40%;"><br>
+<a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs menu </a><br><br>
+<br>
+<a href="/list" style="margin-left: 10%"> Show the list </a>
+</div>
+</body>
+</html>

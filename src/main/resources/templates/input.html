@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MVC Web application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<h1>Create a new record</h1>
+
+<form action="create" method="post">
+    Sanitary card number:<input type="text" name="sanitaryCardNumber"><br>
+    Name:<input type="text" name="firstname"><br>
+    Surname:<input type="text" name="lastname"><br>
+    Age:<input type="number" name="age"><br>
+    Description:<input type="text" name="description"><br>
+    Height:<input type="number" name="height"><br>
+    Weight:<input type="number" name="weight"><br>
+    <input type="submit" />
+</form>
+
+<a href="/list"> Show the list </a>
+
+</body>
+</html>
+

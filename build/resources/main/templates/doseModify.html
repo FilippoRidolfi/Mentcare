@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>MVC Web application</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    a {
+      background-color: #009688;
+      box-shadow: 0 5px 0 #009188;
+      color: white;
+      padding: 1em 1.5em;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    a:hover {
+      background-color: #009188;
+      cursor: pointer;
+    }
+
+    a:active {
+      box-shadow: none;
+      top: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="w3-container w3-teal" >
+  <h1 style="margin-left: 10%">Dose modify</h1>
+</div><br>
+<div style="float:left; display:block; width:40%;">
+<h3 style="margin-left: 20%; color: #009688"> Patient information: </h3>
+<ul style="margin-left: 20%">
+  <li th:text="'Sanitary card number: ' + ${person.sanitaryCardNumber} "> </li>
+  <li th:text="'First Name: ' + ${person.firstName} ">  </li>
+  <li th:text="'Last Name: ' + ${person.lastName} ">  </li>
+  <li th:text="'Age: ' + ${person.age} "> </li>
+  <li th:text="'Height: ' + ${person.height} "> </li>
+  <li th:text="'Weight: ' + ${person.weight} ">  </li>
+  <li th:text="'Description: ' + ${person.description} "> </li>
+</ul><br>
+<h3 style="margin-left: 20%; color: #009688"> Drug information: </h3>
+<ul style="margin-left: 20%;">
+  <li th:text="'Name: ' + ${drug.name} ">  </li>
+  <li th:text="'ATC: ' + ${drug.atc} ">  </li>
+  <li th:text="'Company: ' + ${drug.company} "> </li>
+  <li th:text="'Type: ' + ${drug.type} "> </li>
+  <li th:text="'Description: ' + ${drug.description} ">  </li>
+</ul><br>
+</div><div style="float:left; display:block; width:50%;"><br>
+<p th:text="'Actual dose: ' + ${drug.dose} "></p>
+<h3> Change dose: </h3>
+ <h4> (Limited dosage for security reason)</h4>
+<form action="update" method="post">
+  <input type="hidden" name="uniqueID" th:value="${person.uniqueID}"><br>
+  <input type="hidden" name="uniqueDrug" th:value="${drug.uniqueID}"><br>
+  Dose:<input id="dose" type="number" th:min="${drug.minDose}" th:max="${drug.maxDose}" name="dose" th:value="${drug.dose}"> (per day)<br><br>
+  <input type="submit" id="changeDoseButton" value="Change dose" onclick="myFunction()"/>
+</form>
+<br><br>
+<a href="drugs?"th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs menu </a>
+  <br><br><br>
+<a href="/list"> Show the list </a>
+</div>
+<script>
+  function myFunction() {
+    confirm("Dose has changed!");
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </style>
+</head>
+
+<body>
+<div class="w3-container w3-teal" >
+  <h1 style="margin-left: 10%">Report description for <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/>:</h1>
+</div><br><br>
+<h3 style="margin-left: 10%; color: #009688"> Report about <text th:text="${report.drugName}"/> </h3>
+<h4 style="margin-left: 10%; color: #009688"> <text th:text="${report.data.toString()}"/>: </h4><br>
+<p style="margin-left: 10%" th:text="${report.description}"></p>
+<br>
+<br>
+<a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs menu </a><br><br><br>
+<a href="/list" style="margin-left: 10%"> Show the list </a>
+</body>
+</html>

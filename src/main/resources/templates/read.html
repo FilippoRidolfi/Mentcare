@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MVC Web application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        a {
+            background-color: #009688;
+            box-shadow: 0 5px 0 #009188;
+            color: white;
+            padding: 1em 1.5em;
+            position: relative;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        a:hover {
+            background-color: #009188;
+            cursor: pointer;
+        }
+
+        a:active {
+            box-shadow: none;
+            top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="w3-container w3-teal" >
+    <h1 style="margin-left: 10%">Detail of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/>:</h1>
+</div>
+<br>
+<div style="float:left; display:block; width:40%;">
+<ul style="margin-left: 20%">
+    <li id="sanityCard" th:text="'Sanitary card number: ' + ${person.sanitaryCardNumber} "> </li>
+    <li id="firstname" th:text="'First Name: ' + ${person.firstName} ">  </li>
+    <li id="lastname" th:text="'Last Name: ' + ${person.lastName} ">  </li>
+    <li id="age" th:text="'Age: ' + ${person.age} "> </li>
+    <li id="height" th:text="'Height: ' + ${person.height} "> </li>
+    <li id="weight" th:text="'Weight: ' + ${person.weight} ">  </li>
+    <li id="description" th:text="'Description: ' + ${person.description} "> </li>
+</ul>
+</div>
+<div style="float:left; display:block; width:50%;"><br><br>
+<a href="drugs?" id="drug" th:href="@{drugs(uniqueID=${person.uniqueID})}" style="margin-left: 10%">Drugs</a><br>
+<br><br>
+<a href="/list" style="margin-left: 10%"> Show the list </a>
+</div>
+</body>
+</html>

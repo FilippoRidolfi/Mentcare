@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista pazienti</title>
+</head>
+<body>
+<div class="w3-container w3-teal">
+    <h1 style="margin-left: 10%"> Patients list </h1>
+</div>
+<br>
+    <table id="table" border="1" class="w3-table-all" style="width: 40%; margin-left: 10%">
+        <thead>
+        <tr style="background-color: #009688; color: white">
+            <th>Sanitary card number</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Clinic folder</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person: ${people}">
+            <td th:text="${person.sanitaryCardNumber}"></td>
+            <td th:text="${person.firstName}"> </td>
+            <td th:text="${person.lastName}"> </td>
+            <td> <a href="read?" th:href="@{read(uniqueID=${person.uniqueID})}"> Show </a></td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <script>
+        if (document.getElementById("table").rows.length === 1) {
+            document.body.append("No elements in table");
+        }
+    </script>
+</body>
+</html>

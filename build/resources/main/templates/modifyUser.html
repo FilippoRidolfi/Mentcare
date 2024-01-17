@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>MVC Web application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    a {
+      background-color: #009688;
+      box-shadow: 0 5px 0 #009188;
+      color: white;
+      padding: 1em 1.5em;
+      position: relative;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    a:hover {
+      background-color: #009188;
+      cursor: pointer;
+    }
+
+    a:active {
+      box-shadow: none;
+      top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="w3-container w3-teal" >
+  <h1 style="margin-left: 10%">Modify information of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/>:</h1>
+</div>
+<br>
+<div style="float:left; display:block; width:40%;">
+    <form action="edit" method="post" style="margin-left: 20%">
+      <input type="hidden" name="uniqueID" th:value="${person.uniqueID}"><br>
+      Age:<input type="number" id="age" min="0" max="100" name="age" th:value="${person.age}"><br><br>
+      Weight:<input type="number" id="weight" name="weight" min="0" step="0.01" th:value="${person.weight}"><br><br>
+      Height:<input type="number" id="height" name="height"min="0" step="0.01" th:value="${person.height}"><br><br>
+      <input type="submit" value="send" onclick="myFunction()"/>
+    </form>
+</div>
+<div style="float:left; display:block; width:50%;"><br><br>
+  <a href="drugs?" th:href="@{drugs(uniqueID=${person.uniqueID})}" style="margin-left: 10%"> Drug </a></td><br>
+  <br><br>
+  <a href="/list" style="margin-left: 10%"> Show the list </a>
+</div>
+<script>
+  function myFunction() {
+    confirm("User information has changed!");
+  }
+</script>
+</body>
+</html>

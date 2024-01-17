@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>MVC Web application</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+<div class="w3-container w3-teal" >
+  <h1 style="margin-left: 10%">Drugs in prescription of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/>:</h1>
+</div>
+<br>
+<table id="table" border="1" class="w3-table-all" style="width: 65%; margin-left: 10%">
+  <thead>
+  <tr style="background-color: #009688; color: white;">
+    <th>Sanitary card number</th>
+    <th>Drug name</th>
+    <th>ATC</th>
+    <th>Company</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th >Dose (per day)</th>
+    <th>Change dose</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr id="drugList" th:each="drug: ${drugs}">
+    <td th:text="${person.sanitaryCardNumber}"></td>
+    <td th:text="${drug.name}"></td>
+    <td th:text="${drug.atc}"> </td>
+    <td th:text="${drug.company}"> </td>
+    <td th:text="${drug.type}"> </td>
+    <td th:text="${drug.description}"> </td>
+    <td th:text="${drug.dose}"></td>
+    <td><a href="doseModify?" th:href="@{doseModify(uniqueID=${person.uniqueID},uniqueDrug=${drug.uniqueID})}"> Modify </a></td>
+  </tr>
+  </tbody>
+</table>
+<br>
+<a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs menu </a><br><br>
+<a href="/list" style="margin-left: 10%"> Show the list </a>
+</body>
+</html>
