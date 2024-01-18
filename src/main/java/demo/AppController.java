@@ -240,7 +240,7 @@ public class AppController {
         Optional<Person> person = Optional.ofNullable(repository.findByUniqueID(uniqueID));
         if (result.isPresent() && person.isPresent()) {
 
-            if(result.get().getMinDose() <= dose && result.get().getMaxDose() > dose){
+            if(result.get().getMinDose() <= dose && result.get().getMaxDose() >= dose){
                 Drug drug = new Drug(result.get().getName(),
                         result.get().getAtc(),
                         result.get().getCompany(),
