@@ -38,15 +38,13 @@
     <li id="firstname" th:text="'First Name: ' + ${person.firstName} ">  </li>
     <li id="lastname" th:text="'Last Name: ' + ${person.lastName} ">  </li>
     <li id="age" th:text="'Age: ' + ${person.age} "> </li>
-    <li id="height" th:text="'Height: ' + ${person.height} "> </li>
-    <li id="weight" th:text="'Weight: ' + ${person.weight} ">  </li>
-    <li id="description" th:text="'Description: ' + ${person.description} "> </li>
+    <li id="height" th:text="'Height: ' + ${person.height} + ' in cm'"> </li>
+    <li id="weight" th:text="'Weight: ' + ${person.weight} + ' in kg'"></li>
 </ul>
 </div>
-<div style="float:left; display:block; width:50%;"><br><br>
-<a href="drugs?" id="drug" th:href="@{drugs(uniqueID=${person.uniqueID})}" style="margin-left: 10%">Drugs</a><br>
-<br><br>
-<a href="/list" style="margin-left: 10%"> Show the list </a>
+<div style="float:left; display:block; width:50%;"><br>
+    <a href="modifyUser?"  style="margin-left: 10%" id="userModify" th:href="@{modifyUser(uniqueID=${person.uniqueID})}"> Modify user information </a><br><br><br>
+<a href="drugs?" id="drug" th:href="@{drugs(uniqueID=${person.uniqueID})}" style="margin-left: 10%">Drugs management</a><br>
 </div>
 </body>
 </html>

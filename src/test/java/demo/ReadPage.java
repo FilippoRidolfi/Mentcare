@@ -10,6 +10,9 @@ public class ReadPage extends PageObject{
         super(driver);
     }
 
+    @FindBy(id="userModify")
+    private WebElement linkUserModify;
+
     @FindBy(tagName="h1")
     private WebElement message;
     @FindBy(id = "drug")
@@ -63,5 +66,10 @@ public class ReadPage extends PageObject{
     public void submit(){
         this.link.click();
         new DrugPage(driver);
+    }
+
+    public void submitUserModify(){
+        this.linkUserModify.click();
+        new ModifyUserPage(driver);
     }
 }

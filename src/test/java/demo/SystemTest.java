@@ -1,5 +1,7 @@
 package demo;
 
+import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,57 +11,46 @@ import static org.junit.Assert.*;
 
 public class SystemTest extends BaseTest{
 
-    @org.junit.Test
+    @Test
     public void modifyUserInformation() {
 
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        ListPage listPage = new ListPage(driver);
         ReadPage readPage = new ReadPage(driver);
-        DrugPage drugPage = new DrugPage(driver);
         ModifyUserPage muPage = new ModifyUserPage(driver);
 
         driver.get("http://localhost:8080/");
 
-        listPage.submit();
-
         assertFalse("Patient information is correct insert", readPage.checkData());
 
-        readPage.submit();
+        readPage.submitUserModify();
 
-        drugPage.submitUserModify();
-
-        muPage.enterData(25, (float)50.20, (float)40.30);
+        muPage.enterData(25, (float)80.21, (float)1.85);
 
         muPage.submit();
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.urlContains("drugs"));
-
-        drugPage.submitClinicFolder();
+        wait.until(ExpectedConditions.urlContains("read"));
 
         assertFalse("Patient information is correct insert", readPage.checkData());
         assertEquals("Patient age message expected", "Age: 25", readPage.age());
-        assertEquals("Patient weight message expected", "Weight: 50.2", readPage.weight());
-        assertEquals("Patient height message expected", "Height: 40.3", readPage.height());
+        assertEquals("Patient weight message expected", "Weight: 80.21 in kg", readPage.weight());
+        assertEquals("Patient height message expected", "Height: 1.85 in cm", readPage.height());
     }
 
-    @org.junit.Test
+    @Test
     public void actualDrugDoseModify() {
 
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        ListPage listPage = new ListPage(driver);
         ReadPage readPage = new ReadPage(driver);
         DrugPage drugPage = new DrugPage(driver);
         ActualDrugPage drugActual = new ActualDrugPage(driver);
         DoseModifyPage doseModifyPage = new DoseModifyPage(driver);
 
         driver.get("http://localhost:8080/");
-
-        listPage.submit();
 
         readPage.submit();
 
@@ -69,26 +60,35 @@ public class SystemTest extends BaseTest{
 
         drugActual.submit();
 
-        Integer changeDose = 5;
+        int changeDose = 5;
 
         doseModifyPage.enterData(changeDose);
 
         doseModifyPage.submit();
 
+        driver.switchTo().alert().dismiss();
+
+        changeDose = 4;
+
+        doseModifyPage.enterData(changeDose);
+
+        doseModifyPage.submit();
+
+        driver.switchTo().alert().accept();
+
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.urlContains("actualDrugs"));
 
         assertEquals("Correct drug", drugNameModify, drugActual.lastDrugName());
-        assertEquals("Dose change correctly", changeDose.toString(), drugActual.lastDrugDose());
+        assertEquals("Dose change correctly", Integer.toString(changeDose), drugActual.lastDrugDose());
     }
 
-    @org.junit.Test
+    @Test
     public void newDrugTest() {
 
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        ListPage listPage = new ListPage(driver);
         ReadPage readPage = new ReadPage(driver);
         DrugPage drugPage = new DrugPage(driver);
         DrugListPage drugListPage = new DrugListPage(driver);
@@ -96,8 +96,6 @@ public class SystemTest extends BaseTest{
         ActualDrugPage drugActual = new ActualDrugPage(driver);
 
         driver.get("http://localhost:8080/");
-
-        listPage.submit();
 
         readPage.submit();
 
@@ -108,7 +106,16 @@ public class SystemTest extends BaseTest{
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.urlContains("drugsInfo"));
 
-        Integer changeDose = 7;
+        int changeDose = 17;
+        drugsInfoPage.enterData(changeDose);
+
+        drugsInfoPage.submit();
+
+        wait.until(ExpectedConditions.textToBePresentInElement(drugsInfoPage.span(), "Dose is outside the safe range. Is too high"));
+
+        assertEquals("Message send correctly", "Dose is outside the safe range. Is too high", drugsInfoPage.spanMessage());
+
+        changeDose = 3;
         drugsInfoPage.enterData(changeDose);
 
         drugsInfoPage.submit();
@@ -117,25 +124,23 @@ public class SystemTest extends BaseTest{
 
         wait.until(ExpectedConditions.urlContains("actualDrugs"));
 
-        assertEquals("Dose change correctly", changeDose.toString(), drugActual.lastDrugDose());
+        assertEquals("Dose change correctly", Integer.toString(changeDose), drugActual.lastDrugDose());
     }
 
-    @org.junit.Test
+    @Test
     public void formularyTest() {
 
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        ListPage listPage = new ListPage(driver);
         ReadPage readPage = new ReadPage(driver);
         DrugPage drugPage = new DrugPage(driver);
         FormularyPage formularyPage = new FormularyPage(driver);
-        DrugsInfoPage drugsInfoPage = new DrugsInfoPage(driver);
-        ActualDrugPage drugActual = new ActualDrugPage(driver);
+        ActualDrugPage actualDrugPage = new ActualDrugPage(driver);
+        ChangeFormularyDose changeFormularyDose = new ChangeFormularyDose(driver);
+        ConfirmPrescription confirmPrescription = new ConfirmPrescription(driver);
 
         driver.get("http://localhost:8080/");
-
-        listPage.submit();
 
         readPage.submit();
 
@@ -144,36 +149,38 @@ public class SystemTest extends BaseTest{
         formularyPage.submit();
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.urlContains("drugsInfo"));
+        wait.until(ExpectedConditions.urlContains("changeFormularyDose"));
 
         Integer changeDose = 3;
-        drugsInfoPage.enterData(changeDose);
+        changeFormularyDose.enterData(changeDose);
 
-        drugsInfoPage.submit();
+        changeFormularyDose.submit();
 
         driver.switchTo().alert().accept();
 
+        wait.until(ExpectedConditions.urlContains("confirmPrescription"));
+
+        confirmPrescription.submitOK();
+
         wait.until(ExpectedConditions.urlContains("actualDrugs"));
 
-        assertEquals("Dose change correctly", changeDose.toString(), drugActual.lastDrugDose());
+        assertEquals("Dose change correctly", changeDose.toString(), actualDrugPage.lastDrugDose());
     }
 
-    @org.junit.Test
+    @Test
     public void formularyTestRefuseDrugChange() {
 
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        ListPage listPage = new ListPage(driver);
         ReadPage readPage = new ReadPage(driver);
         DrugPage drugPage = new DrugPage(driver);
         FormularyPage formularyPage = new FormularyPage(driver);
-        DrugsInfoPage drugsInfoPage = new DrugsInfoPage(driver);
-        ActualDrugPage drugActual = new ActualDrugPage(driver);
+        ActualDrugPage actualDrugPage = new ActualDrugPage(driver);
+        ChangeFormularyDose changeFormularyDose = new ChangeFormularyDose(driver);
+        ConfirmPrescription confirmPrescription = new ConfirmPrescription(driver);
 
         driver.get("http://localhost:8080/");
-
-        listPage.submit();
 
         readPage.submit();
 
@@ -182,33 +189,30 @@ public class SystemTest extends BaseTest{
         formularyPage.submit();
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.urlContains("drugsInfo"));
+        wait.until(ExpectedConditions.urlContains("changeFormularyDose"));
 
         Integer changeDose = 3;
-        drugsInfoPage.enterData(changeDose);
+        changeFormularyDose.enterData(changeDose);
 
-        drugsInfoPage.submit();
+        changeFormularyDose.submit();
 
         driver.switchTo().alert().dismiss();
 
-        wait.until(ExpectedConditions.urlContains("drugsInfo"));
+        wait.until(ExpectedConditions.urlContains("changeFormularyDose"));
     }
 
-    @org.junit.Test
+    @Test
     public void reportTest() {
 
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
-        ListPage listPage = new ListPage(driver);
         ReadPage readPage = new ReadPage(driver);
         DrugPage drugPage = new DrugPage(driver);
         ReportPage reportPage = new ReportPage(driver);
         RepDescriptionPage repDescriptionPage = new RepDescriptionPage(driver);
 
         driver.get("http://localhost:8080/");
-
-        listPage.submit();
 
         readPage.submit();
 

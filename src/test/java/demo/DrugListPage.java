@@ -14,6 +14,7 @@ public class DrugListPage extends PageObject {
     @FindBy(tagName = "input")
     private WebElement submitButton;
 
+
     public void submit(){
         this.submitButton.submit();
         new DrugsInfoPage(driver);

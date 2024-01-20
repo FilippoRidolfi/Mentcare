@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MVC Web application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        a, input {
+            background-color: #009688;
+            box-shadow: 0 5px 0 #009188;
+            color: white;
+            padding: 1em 1.5em;
+            position: relative;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        a:hover, input:hover {
+            background-color: #009188;
+            cursor: pointer;
+        }
+
+        a:active, input:active {
+            box-shadow: none;
+            top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="w3-container w3-teal" >
+    <h1 style="margin-left: 10%">Confirm prescription</h1>
+</div><br>
+<div style="float:left; display:block; width:40%;">
+    <h3 style="margin-left: 20%; color: #009688"> Patient information: </h3>
+    <ul style="margin-left: 20%">
+        <li th:text="'Sanitary card number: ' + ${person.sanitaryCardNumber} "> </li>
+        <li th:text="'First Name: ' + ${person.firstName} ">  </li>
+        <li th:text="'Last Name: ' + ${person.lastName} ">  </li>
+        <li th:text="'Age: ' + ${person.age} "> </li>
+        <li th:text="'Height: ' + ${person.height} + ' in cm'"></li>
+        <li th:text="'Weight: ' + ${person.weight} + ' in kg'"></li>
+    </ul><br>
+    <h3 style="margin-left: 20%; color: #009688"> Drug information: </h3>
+    <ul style="margin-left: 20%;">
+        <li th:text="'Name: ' + ${drug.name} ">  </li>
+        <li th:text="'ATC: ' + ${drug.atc} ">  </li>
+        <li th:text="'Company: ' + ${drug.company} "> </li>
+        <li th:text="'Type: ' + ${drug.type} "> </li>
+        <li th:text="'Description: ' + ${drug.description} ">  </li>
+        <li th:text="'Minimum dose: ' + ${drug.minDose} ">  </li>
+        <li th:text="'Max dose: ' + ${drug.maxDose} ">  </li>
+    </ul><br>
+</div><div style="float:left; display:block; width:50%;"><br>
+    <b><p th:text="'Actual dose: ' + ${drug.dose} "></p></b>
+    <b style="color: red"><p th:text="'Dose value you want to enter: ' + ${doseRequest} "></p></b>
+    <br>
+    <form action="newDrug" method="post">
+        <h3> Confirm prescription? </h3>
+        <input style="border: none" id="changeDoseButton"type="submit" value="OK"/>
+        <a href="formulary?" style="margin-left: 10%" th:href="@{formulary(uniqueID=${person.uniqueID})}"> Change </a>
+        <input type="hidden" name="uniqueID" th:value="${person.uniqueID}"><br>
+        <input type="hidden" name="uniqueDrug" th:value="${drug.uniqueID}"><br>
+        <input type="hidden" name="dose" th:value="${doseRequest}"><br>
+    </form>
+</div>
+</body>
+</html>

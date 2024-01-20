@@ -26,7 +26,7 @@ public class AppController {
     @Autowired
     public void initialData(){
         repository.save(new Person(
-                "VRDC498468A12", "Mario", "Rossi", 45, "Funny", 50, 30)
+                "VRDC498468A12", "Mario", "Rossi", 45, (float)1.83, (float)78.15)
         );
         Drug drug = new Drug(
                 "Paracetamol", "N02BE03", "mepha", "compress", "For headache", "VRDC498468A12", 1, 1, 8);
@@ -49,17 +49,7 @@ public class AppController {
 
     @RequestMapping("/")
     public String index(){
-        return "redirect:/list";
-    }
-
-    @RequestMapping("/list")
-    public String list(Model model){
-        List<Person> data = new LinkedList<>();
-        for (Person p: repository.findAll()){
-            data.add(p);
-        }
-        model.addAttribute("people", data);
-        return "list";
+        return "redirect:/read";
     }
 
     @RequestMapping("/input")
@@ -68,17 +58,13 @@ public class AppController {
     }
 
     @RequestMapping("/read")
-    public String read(
-            @RequestParam(name="uniqueID", required=true) String uniqueID,
-            Model model) {
-        Optional<Person> result = Optional.ofNullable(repository.findByUniqueID(uniqueID));
-        if (result.isPresent()){
-            Person person = result.get();
-            model.addAttribute("person", person);
-            return "read";
+    public String read(Model model) {
+        List<Person> data = new LinkedList<>();
+        for (Person p: repository.findAll()){
+            data.add(p);
         }
-        else
-            return "notfound";
+        model.addAttribute("person", data.get(0));
+        return "read";
     }
 
     @RequestMapping("/drugs")
@@ -149,10 +135,13 @@ public class AppController {
         if (result.isPresent()){
             Person person = result.get();
             List<Report> rep = reportRepository.findBypersonSanityCardNumber(person.getSanitaryCardNumber());
-            List<Drug> drug = drugRepository.findByPersonSanitNumber(person.getSanitaryCardNumber());
+            List<Drug> data = new LinkedList<>();
+            for (Drug d: drugRepository.findAll()){
+                data.add(d);
+            }
             model.addAttribute("person", person);
             model.addAttribute("report", rep);
-            model.addAttribute("drugs", drug);
+            model.addAttribute("drugs", data);
             return "formulary";
         }
         else
@@ -178,6 +167,25 @@ public class AppController {
             return "notfound";
     }
 
+    @RequestMapping("/changeFormularyDose")
+    public String changeFormularyDose(@RequestParam(name="uniqueID", required = true) String uniqueID,
+                            @RequestParam(name="uniqueDrug", required = true) String uniqueDrug,
+                            @RequestParam(name="message", required = false) String message,
+                            Model model){
+        Optional<Person> result = Optional.ofNullable(repository.findByUniqueID(uniqueID));
+        Optional<Drug> drugResult = Optional.ofNullable(drugRepository.findByUniqueID(uniqueDrug));
+        if (result.isPresent() && drugResult.isPresent()){
+            Person person = result.get();
+            Drug drug = drugResult.get();
+            model.addAttribute("person", person);
+            model.addAttribute("drug", drug);
+            model.addAttribute("message", message);
+            return "changeFormularyDose";
+        }
+        else
+            return "notfound";
+    }
+
     @RequestMapping("/doseModify")
     public String doseModify(@RequestParam(name="uniqueID", required = true) String uniqueID,
                              @RequestParam(name="uniqueDrug", required = true) String uniqueDrug,
@@ -190,6 +198,25 @@ public class AppController {
             model.addAttribute("person", person);
             model.addAttribute("drug", drug);
             return "doseModify";
+        }
+        else
+            return "notfound";
+    }
+
+    @RequestMapping("/confirmPrescription")
+    public String confirmPrescription(@RequestParam(name="uniqueID", required = true) String uniqueID,
+                             @RequestParam(name="uniqueDrug", required = true) String uniqueDrug,
+                             @RequestParam(name="doseInput", required = true) String doseRequest,
+                             Model model){
+        Optional<Person> result = Optional.ofNullable(repository.findByUniqueID(uniqueID));
+        Optional<Drug> drugResult = Optional.ofNullable(drugRepository.findByUniqueID(uniqueDrug));
+        if (result.isPresent() && drugResult.isPresent()){
+            Person person = result.get();
+            Drug drug = drugResult.get();
+            model.addAttribute("person", person);
+            model.addAttribute("drug", drug);
+            model.addAttribute("doseRequest", doseRequest);
+            return "confirmPrescription";
         }
         else
             return "notfound";
@@ -300,10 +327,9 @@ public class AppController {
             @RequestParam(name="firstname", required=true) String firstname,
             @RequestParam(name="lastname", required=true) String lastname,
             @RequestParam(name="age", required=true) int age,
-            @RequestParam(name="description", required=true) String description,
             @RequestParam(name="height", required=true) float height,
             @RequestParam(name="weight", required=true) float weight) {
-        repository.save(new Person(sanitaryCardNumber, firstname,lastname, age, description, height, weight));
+        repository.save(new Person(sanitaryCardNumber, firstname,lastname, age, height, weight));
         return "redirect:/list";
     }
 
@@ -322,7 +348,7 @@ public class AppController {
             p.setWeight(weight);
             repository.save(p);
 
-            return "redirect:/drugs?uniqueID=" + uniqueID;
+            return "redirect:/read?uniqueID=" + uniqueID;
         }
         else
             return "notfound";

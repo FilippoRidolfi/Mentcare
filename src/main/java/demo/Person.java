@@ -15,17 +15,15 @@ public class Person {
     private float height;
 
     private float weight;
-    private String description;
 
     protected Person() {}
 
     public Person(String sanitaryCardNumber, String firstName, String lastName,
-                  int age, String description, float height, float weight) {
+                  int age, float height, float weight) {
         this.sanitaryCardNumber = sanitaryCardNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
-        this.description = description;
         this.height = height;
         this.weight = weight;
     }
@@ -82,13 +80,6 @@ public class Person {
         this.weight = weight;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Override
     public String toString() {
@@ -100,7 +91,6 @@ public class Person {
                 ", age=" + age +
                 ", height=" + height +
                 ", weight=" + weight +
-                ", description='" + description + '\'' +
                 '}';
     }
 }

@@ -43,7 +43,7 @@
 <div style="float:left; display:block; width:40%;">
 <label style="margin-left: 20%">Select drug:</label>
 
-<form method="GET" action="drugsInfo" style="width:60%; margin-left: 20%; display:flex">
+<form method="GET" action="changeFormularyDose" style="width:60%; margin-left: 20%; display:flex">
     <select style="width:75%;" name="uniqueDrug" id="uniqueDrug" class="js-example-basic-single">
         <option th:each="drug : ${drugs}"
                 th:value="${drug.uniqueID}"
@@ -55,8 +55,7 @@
 </form>
 </div>
 <div style="float:left; display:block; width:40%;"><br><br>
-<a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs menu </a><br><br><br>
-<a href="/list" style="margin-left: 10%"> Show the list </a>
+<a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu </a><br><br><br>
 </div>
 </body>
 </html>

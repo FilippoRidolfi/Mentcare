@@ -9,9 +9,6 @@ public class DrugPage extends PageObject {
         super(driver);
     }
 
-    @FindBy(id="userModify")
-    private WebElement linkUserModify;
-
     @FindBy(id="newDrug")
     private WebElement linkNewDrug;
 
@@ -45,11 +42,6 @@ public class DrugPage extends PageObject {
     public void newDrug(){
         this.linkNewDrug.click();
         new DrugListPage(driver);
-    }
-
-    public void submitUserModify(){
-        this.linkUserModify.click();
-        new ModifyUserPage(driver);
     }
 
     public void submitClinicFolder(){

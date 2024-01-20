@@ -26,6 +26,20 @@
       top: 5px;
     }
   </style>
+  <script th:inline="javascript">
+    function conferma () {
+
+      var maxDose = Number([[${drug.maxDose}]]);
+      var minDose = Number([[${drug.minDose}]]);
+      var insertDose = document.getElementById('dose').value;
+
+      if(insertDose >= minDose && insertDose <= maxDose){
+        if(confirm("Confirm the dosage?") === false) {
+          return false;
+        }
+      }
+    }
+  </script>
 </head>
 <body>
 <div class="w3-container w3-teal" >
@@ -38,9 +52,8 @@
   <li th:text="'First Name: ' + ${person.firstName} ">  </li>
   <li th:text="'Last Name: ' + ${person.lastName} ">  </li>
   <li th:text="'Age: ' + ${person.age} "> </li>
-  <li th:text="'Height: ' + ${person.height} "> </li>
-  <li th:text="'Weight: ' + ${person.weight} ">  </li>
-  <li th:text="'Description: ' + ${person.description} "> </li>
+  <li th:text="'Height: ' + ${person.height} + ' in cm'"></li>
+  <li th:text="'Weight: ' + ${person.weight} + ' in kg'"></li>
 </ul><br>
 <h3 style="margin-left: 20%; color: #009688"> Drug information: </h3>
 <ul style="margin-left: 20%;">
@@ -54,21 +67,14 @@
 <p th:text="'Actual dose: ' + ${drug.dose} "></p>
 <h3> Change dose: </h3>
  <h4> (Limited dosage for security reason)</h4>
-<form action="update" method="post">
+<form action="update" method="post" onsubmit="return conferma()">
   <input type="hidden" name="uniqueID" th:value="${person.uniqueID}"><br>
   <input type="hidden" name="uniqueDrug" th:value="${drug.uniqueID}"><br>
   Dose:<input id="dose" type="number" th:min="${drug.minDose}" th:max="${drug.maxDose}" name="dose" th:value="${drug.dose}"> (per day)<br><br>
-  <input type="submit" id="changeDoseButton" value="Change dose" onclick="myFunction()"/>
+  <input type="submit" id="changeDoseButton" value="Change dose"/>
 </form>
 <br><br>
-<a href="drugs?"th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs menu </a>
-  <br><br><br>
-<a href="/list"> Show the list </a>
+<a href="drugs?"th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu</a>
 </div>
-<script>
-  function myFunction() {
-    confirm("Dose has changed!");
-  }
-</script>
 </body>
 </html>

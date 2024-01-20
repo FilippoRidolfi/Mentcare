@@ -36,15 +36,15 @@
 <div style="float:left; display:block; width:50%;"><br>
   <p th:text="'Actual dose: ' + ${drug.dose} "></p>
   <h3> Change dose: </h3>
-  <b><span id="span" th:text="${message}" style="color: red;"></span></b>
+  <b><span id="spanMessage" th:text="${message}" style="color: red;"></span></b>
   <form action="newDrug" method="post" onsubmit="return conferma()">
     <input type="hidden" name="uniqueID" th:value="${person.uniqueID}"><br>
     <input type="hidden" name="uniqueDrug" th:value="${drug.uniqueID}"><br>
     Dose:<input id="doseInput" type="number" name="dose" th:value="${drug.dose}"/> (per day)<br><br>
     <input id="changeDoseButton"type="submit" value="Change dose and add drug"/>
   </form>
-  <br>
-  <a href="/list"> Show the list </a>
+  <br><br>
+  <a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu </a><br><br>
 </div>
 </body>
 </html>

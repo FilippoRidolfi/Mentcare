@@ -23,28 +23,27 @@
   <h1 style="margin-left: 10%">Add drug <text th:text="${drug.name}"/> to clinic folder of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/></h1>
 </div><br><br>
 <div style="float:left; display:block; width:50%;">
-<h3 style="margin-left: 20%; color: #009688"> Drug information: </h3>
-<ul style="margin-left: 20%;">
-  <li th:text="'Name: ' + ${drug.name} "> John </li>
-  <li th:text="'ATC: ' + ${drug.atc} "> Smith </li>
-  <li th:text="'Company: ' + ${drug.company} "> </li>
-  <li th:text="'Type: ' + ${drug.type} "> </li>
-  <li th:text="'Description: ' + ${drug.description} ">  </li>
-  <li th:text="'Max dose: ' + ${drug.maxDose} ">  </li>
-  <li th:text="'Min dose: ' + ${drug.minDose} ">  </li>
-</ul><br></div>
+  <h3 style="margin-left: 20%; color: #009688"> Drug information: </h3>
+  <ul style="margin-left: 20%;">
+    <li th:text="'Name: ' + ${drug.name} "> John </li>
+    <li th:text="'ATC: ' + ${drug.atc} "> Smith </li>
+    <li th:text="'Company: ' + ${drug.company} "> </li>
+    <li th:text="'Type: ' + ${drug.type} "> </li>
+    <li th:text="'Description: ' + ${drug.description} ">  </li>
+    <li th:text="'Max dose: ' + ${drug.maxDose} ">  </li>
+    <li th:text="'Min dose: ' + ${drug.minDose} ">  </li>
+  </ul><br></div>
 <div style="float:left; display:block; width:50%;"><br>
   <p th:text="'Actual dose: ' + ${drug.dose} "></p>
   <h3> Change dose: </h3>
   <b><span id="spanMessage" th:text="${message}" style="color: red;"></span></b>
-  <form action="newDrug" method="post" onsubmit="return conferma()">
+  <form action="/confirmPrescription" method="get" onsubmit="return conferma()">
     <input type="hidden" name="uniqueID" th:value="${person.uniqueID}"><br>
     <input type="hidden" name="uniqueDrug" th:value="${drug.uniqueID}"><br>
-    Dose:<input id="doseInput" type="number" name="dose" th:value="${drug.dose}"/> (per day)<br><br>
-    <input id="changeDoseButton"type="submit" value="Change dose and add drug"/>
+    Dose:<input id="doseInput" type="number" name="doseInput" th:value="${drug.dose}"/> (per day)<br><br>
+    <input id="changeDoseButton"type="submit" value="Change dose"/>
   </form>
-  <br><br>
-  <a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu </a><br><br>
+  <br><br><a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu </a><br><br>
 </div>
 </body>
 </html>

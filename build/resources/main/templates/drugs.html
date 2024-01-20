@@ -35,7 +35,7 @@
 </div>
 <div style="float:left; display:block; width:50%;">
 <br><br>
-<p style="margin-left: 20%"> Select actual drugs in prescription to the patient</p>
+<p style="margin-left: 20%"> See actual drugs in prescription to the patient</p>
 <a href="actualDrugs?" id="actualDrug" th:href="@{actualDrugs(uniqueID=${person.uniqueID})}"> Actual drug </a><br><br><br>
 <p style="margin-left: 20%"> Add new drug for the patient</p>
 <a href="drugsList?" id="newDrug" th:href="@{drugsList(uniqueID=${person.uniqueID})}"> New drug </a><br><br><br>
@@ -45,9 +45,7 @@
 <a href="report?" id="report" th:href="@{report(uniqueID=${person.uniqueID})}"> Report </a><br><br><br>
 </div>
 <div style="float:left; display:block; width:50%;"><br><br><br><br>
-  <a href="modifyUser?" id="userModify" th:href="@{modifyUser(uniqueID=${person.uniqueID})}"> Modify user information </a><br><br><br>
 <a href="read?" id="clinicFolderLink" th:href="@{read(uniqueID=${person.uniqueID})}"> Clinic folder </a><br><br><br>
-<a href="/list"> Show the list </a>
 </div>
 </body>
 </html>

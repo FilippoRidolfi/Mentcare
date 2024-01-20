@@ -4,34 +4,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DrugsInfoPage extends PageObject {
-    public DrugsInfoPage(WebDriver driver) {
+public class ConfirmPrescription extends PageObject {
+    public ConfirmPrescription(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(id ="doseInput")
+    @FindBy(id = "doseInput")
     private WebElement doseInput;
 
-    public void enterData(Integer doseInput){
-        this.doseInput.clear();
-        this.doseInput.sendKeys(String.valueOf(doseInput));
-    }
-
-    @FindBy(id="spanMessage")
+    @FindBy(id = "spanMessage")
     private WebElement span;
 
-    public WebElement span(){
+    public WebElement span() {
         return span;
     }
 
-    public String spanMessage(){
+    public String spanMessage() {
         return span.getText();
     }
 
     @FindBy(id = "changeDoseButton")
     private WebElement submitButton;
 
-    public void submit(){
+    public void submitOK() {
         this.submitButton.submit();
     }
 }

@@ -4,8 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DrugsInfoPage extends PageObject {
-    public DrugsInfoPage(WebDriver driver) {
+public class ChangeFormularyDose extends PageObject {
+    public ChangeFormularyDose(WebDriver driver) {
         super(driver);
     }
 
@@ -28,7 +28,7 @@ public class DrugsInfoPage extends PageObject {
         return span.getText();
     }
 
-    @FindBy(id = "changeDoseButton")
+    @FindBy(tagName = "input")
     private WebElement submitButton;
 
     public void submit(){
