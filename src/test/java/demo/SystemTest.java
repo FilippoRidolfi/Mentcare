@@ -12,7 +12,47 @@ import static org.junit.Assert.*;
 public class SystemTest extends BaseTest{
 
     @Test
+    public void firstCheckUserInformation(){
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+
+        ReadPage readPage = new ReadPage(driver);
+
+        driver.get("http://localhost:8080/");
+
+        assertFalse("Patient information is correct insert", readPage.checkData());
+    }
+
+    @Test
     public void modifyUserInformation() {
+
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+
+        ReadPage readPage = new ReadPage(driver);
+        ModifyUserPage muPage = new ModifyUserPage(driver);
+
+        driver.get("http://localhost:8080/");
+
+        readPage.submitUserModify();
+
+        muPage.enterData(25, (float)80.21, (float)1.85);
+
+        muPage.submit();
+
+        driver.switchTo().alert().accept();
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.urlContains("read"));
+
+        assertFalse("Patient information is correct insert", readPage.checkData());
+        assertEquals("Patient age message expected", "Age: 25", readPage.age());
+        assertEquals("Patient weight message expected", "Weight: 80.21 in kg", readPage.weight());
+        assertEquals("Patient height message expected", "Height: 1.85 in cm", readPage.height());
+    }
+
+    @Test
+    public void modifyUserDismissInformation() {
 
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
@@ -24,19 +64,24 @@ public class SystemTest extends BaseTest{
 
         assertFalse("Patient information is correct insert", readPage.checkData());
 
+        String previousAge = readPage.age();
+        String previousWeight = readPage.weight();
+        String previousHeight = readPage.height();
+
         readPage.submitUserModify();
 
         muPage.enterData(25, (float)80.21, (float)1.85);
 
         muPage.submit();
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.urlContains("read"));
+        driver.switchTo().alert().dismiss();
+
+        muPage.backClinicFolder();
 
         assertFalse("Patient information is correct insert", readPage.checkData());
-        assertEquals("Patient age message expected", "Age: 25", readPage.age());
-        assertEquals("Patient weight message expected", "Weight: 80.21 in kg", readPage.weight());
-        assertEquals("Patient height message expected", "Height: 1.85 in cm", readPage.height());
+        assertEquals("The age correctly remained the same", readPage.age(), previousAge);
+        assertEquals("The weight correctly remained the same", readPage.weight(), previousWeight);
+        assertEquals("The height correctly remained the same", readPage.height(), previousHeight);
     }
 
     @Test
@@ -176,9 +221,7 @@ public class SystemTest extends BaseTest{
         ReadPage readPage = new ReadPage(driver);
         DrugPage drugPage = new DrugPage(driver);
         FormularyPage formularyPage = new FormularyPage(driver);
-        ActualDrugPage actualDrugPage = new ActualDrugPage(driver);
         ChangeFormularyDose changeFormularyDose = new ChangeFormularyDose(driver);
-        ConfirmPrescription confirmPrescription = new ConfirmPrescription(driver);
 
         driver.get("http://localhost:8080/");
 

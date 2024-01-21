@@ -16,6 +16,9 @@ public class ModifyUserPage extends PageObject {
     @FindBy(name ="height")
     private WebElement height;
 
+    @FindBy(id ="clinicFolder")
+    private WebElement clinicFolder;
+
     public void enterData(Integer age, Float weight, Float height){
         this.age.clear();
         this.age.sendKeys(String.valueOf(age));
@@ -30,5 +33,8 @@ public class ModifyUserPage extends PageObject {
 
     public void submit(){
         this.submitButton.submit();
+    }
+    public void backClinicFolder(){
+        this.clinicFolder.click();
     }
 }

@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="demo.SystemTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-01-20T19:29:21" hostname="FILIPPO_PC" time="11.852">
+<testsuite name="demo.SystemTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2024-01-21T10:50:28" hostname="FILIPPO_PC" time="38.367">
   <properties/>
-  <testcase name="formularyTestRefuseDrugChange" classname="demo.SystemTest" time="11.852"/>
-  <system-out><![CDATA[20:29:09.945 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class demo.SystemTest]
-20:29:09.957 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-20:29:09.971 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-20:29:10.023 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [demo.SystemTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-20:29:10.048 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [demo.SystemTest], using SpringBootContextLoader
-20:29:10.054 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [demo.SystemTest]: class path resource [demo/SystemTest-context.xml] does not exist
-20:29:10.055 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [demo.SystemTest]: class path resource [demo/SystemTestContext.groovy] does not exist
-20:29:10.055 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [demo.SystemTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-20:29:10.058 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [demo.SystemTest]: SystemTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:29:10.131 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [demo.SystemTest]
-20:29:10.292 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\filip\OneDrive\Desktop\Mentcare\build\classes\java\main\demo\ServingWebContentApplication.class]
-20:29:10.295 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration demo.ServingWebContentApplication for test class demo.SystemTest
-20:29:10.474 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [demo.SystemTest]: using defaults.
-20:29:10.476 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-20:29:10.510 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7ff5baa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1620f764, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6082d642, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2c367d8f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@516941a8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@40e31736, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@36a5f9ae, org.springframework.test.context.event.EventPublishingTestExecutionListener@296030f0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@329f4075, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6a1dbbb7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@73ec47d3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5ba31eee, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@13f77107, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1430b0cd]
-20:29:10.517 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
-20:29:10.518 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
-20:29:10.528 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
-20:29:10.529 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
-20:29:10.530 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
-20:29:10.530 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
-20:29:10.537 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@16e76b95 testClass = SystemTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@68eec15e testClass = SystemTest, locations = '{}', classes = '{class demo.ServingWebContentApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f94115b, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7463301e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@729862d9, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@41d2f4c1, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false]], class annotated with @DirtiesContext [false] with mode [null].
-20:29:10.540 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
-20:29:10.540 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
-20:29:10.548 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@16e76b95 testClass = SystemTest, testInstance = demo.SystemTest@45502a69, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@68eec15e testClass = SystemTest, locations = '{}', classes = '{class demo.ServingWebContentApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f94115b, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7463301e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@729862d9, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@41d2f4c1, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false]]].
-20:29:10.582 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+  <testcase name="formularyTestRefuseDrugChange" classname="demo.SystemTest" time="6.472"/>
+  <testcase name="modifyUserDismissInformation" classname="demo.SystemTest" time="4.141"/>
+  <testcase name="firstCheckUserInformation" classname="demo.SystemTest" time="3.179"/>
+  <testcase name="formularyTest" classname="demo.SystemTest" time="5.868"/>
+  <testcase name="modifyUserInformation" classname="demo.SystemTest" time="4.305"/>
+  <testcase name="newDrugTest" classname="demo.SystemTest" time="5.497"/>
+  <testcase name="reportTest" classname="demo.SystemTest" time="3.988"/>
+  <testcase name="actualDrugDoseModify" classname="demo.SystemTest" time="4.917"/>
+  <system-out><![CDATA[11:50:19.682 [Test worker] DEBUG org.springframework.test.context.junit4.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class demo.SystemTest]
+11:50:19.689 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+11:50:19.699 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+11:50:19.737 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [demo.SystemTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+11:50:19.754 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [demo.SystemTest], using SpringBootContextLoader
+11:50:19.758 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [demo.SystemTest]: class path resource [demo/SystemTest-context.xml] does not exist
+11:50:19.759 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [demo.SystemTest]: class path resource [demo/SystemTestContext.groovy] does not exist
+11:50:19.759 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [demo.SystemTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+11:50:19.760 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [demo.SystemTest]: SystemTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:50:19.806 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [demo.SystemTest]
+11:50:19.891 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\filip\OneDrive\Desktop\Mentcare\build\classes\java\main\demo\ServingWebContentApplication.class]
+11:50:19.892 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration demo.ServingWebContentApplication for test class demo.SystemTest
+11:50:20.031 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [demo.SystemTest]: using defaults.
+11:50:20.032 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+11:50:20.060 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7ff5baa, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1620f764, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6082d642, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2c367d8f, org.springframework.test.context.support.DirtiesContextTestExecutionListener@516941a8, org.springframework.test.context.transaction.TransactionalTestExecutionListener@40e31736, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@36a5f9ae, org.springframework.test.context.event.EventPublishingTestExecutionListener@296030f0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@329f4075, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6a1dbbb7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@73ec47d3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5ba31eee, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@13f77107, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1430b0cd]
+11:50:20.065 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
+11:50:20.066 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
+11:50:20.070 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
+11:50:20.070 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
+11:50:20.072 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
+11:50:20.072 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
+11:50:20.079 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@522da43 testClass = SystemTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4f58145a testClass = SystemTest, locations = '{}', classes = '{class demo.ServingWebContentApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f94115b, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7463301e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@729862d9, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@41d2f4c1, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false]], class annotated with @DirtiesContext [false] with mode [null].
+11:50:20.082 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [demo.SystemTest]
+11:50:20.082 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [demo.SystemTest]
+11:50:20.090 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@522da43 testClass = SystemTest, testInstance = demo.SystemTest@44760097, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@4f58145a testClass = SystemTest, locations = '{}', classes = '{class demo.ServingWebContentApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3f94115b, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7463301e, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@729862d9, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@41d2f4c1, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> false]]].
+11:50:20.124 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -37,44 +44,124 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2024-01-20 20:29:11.101  INFO 25996 --- [    Test worker] demo.SystemTest                          : Starting SystemTest on filippo_pc with PID 25996 (started by filip in C:\Users\filip\OneDrive\Desktop\Mentcare)
-2024-01-20 20:29:11.104  INFO 25996 --- [    Test worker] demo.SystemTest                          : No active profile set, falling back to default profiles: default
-2024-01-20 20:29:12.121  INFO 25996 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2024-01-20 20:29:12.302  INFO 25996 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 162ms. Found 3 JPA repository interfaces.
-2024-01-20 20:29:13.568  INFO 25996 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-01-20 20:29:13.590  INFO 25996 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-01-20 20:29:13.590  INFO 25996 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
-2024-01-20 20:29:13.853  INFO 25996 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-01-20 20:29:13.853  INFO 25996 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2713 ms
-2024-01-20 20:29:14.396  INFO 25996 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2024-01-20 20:29:14.431  INFO 25996 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-01-20 20:29:14.769  INFO 25996 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-01-20 20:29:14.919  INFO 25996 --- [    Test worker] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public void demo.AppController.initialData()
-2024-01-20 20:29:14.938  INFO 25996 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-01-20 20:29:15.093  INFO 25996 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
-2024-01-20 20:29:15.687  INFO 25996 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2024-01-20 20:29:16.020  INFO 25996 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2024-01-20 20:29:17.903  INFO 25996 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-01-20 20:29:17.922  INFO 25996 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-01-20 20:29:18.945  WARN 25996 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-01-20 20:29:21.399  INFO 25996 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-01-20 20:29:21.401  INFO 25996 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2024-01-20 20:29:21.403  INFO 25996 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2024-01-20 20:29:21.426  INFO 25996 --- [    Test worker] demo.SystemTest                          : Started SystemTest in 10.839 seconds (JVM running for 13.991)
-2024-01-20 20:29:29.153  INFO 25996 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
-2024-01-20 20:29:29.389  INFO 25996 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-01-20 20:29:29.389  INFO 25996 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-01-20 20:29:29.499  INFO 25996 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 110 ms
+2024-01-21 11:50:20.526  INFO 12072 --- [    Test worker] demo.SystemTest                          : Starting SystemTest on filippo_pc with PID 12072 (started by filip in C:\Users\filip\OneDrive\Desktop\Mentcare)
+2024-01-21 11:50:20.531  INFO 12072 --- [    Test worker] demo.SystemTest                          : No active profile set, falling back to default profiles: default
+2024-01-21 11:50:22.007  INFO 12072 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2024-01-21 11:50:22.089  INFO 12072 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70ms. Found 3 JPA repository interfaces.
+2024-01-21 11:50:23.051  INFO 12072 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-01-21 11:50:23.069  INFO 12072 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-21 11:50:23.069  INFO 12072 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2024-01-21 11:50:23.333  INFO 12072 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-01-21 11:50:23.333  INFO 12072 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2747 ms
+2024-01-21 11:50:24.037  INFO 12072 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-01-21 11:50:24.075  INFO 12072 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-21 11:50:24.589  INFO 12072 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-01-21 11:50:24.809  INFO 12072 --- [    Test worker] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation should only be used on methods with parameters: public void demo.AppController.initialData()
+2024-01-21 11:50:24.825  INFO 12072 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-21 11:50:24.996  INFO 12072 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.18.Final
+2024-01-21 11:50:25.267  INFO 12072 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2024-01-21 11:50:25.478  INFO 12072 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2024-01-21 11:50:26.282  INFO 12072 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-01-21 11:50:26.291  INFO 12072 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-21 11:50:26.999  WARN 12072 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-21 11:50:28.532  INFO 12072 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-01-21 11:50:28.533  INFO 12072 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2024-01-21 11:50:28.534  INFO 12072 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2024-01-21 11:50:28.545  INFO 12072 --- [    Test worker] demo.SystemTest                          : Started SystemTest in 8.417 seconds (JVM running for 10.506)
+2024-01-21 11:50:32.800  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2024-01-21 11:50:32.910  INFO 12072 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-21 11:50:32.910  INFO 12072 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-21 11:50:32.937  INFO 12072 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 27 ms
+2024-01-21 11:50:38.530  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2024-01-21 11:50:42.074  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2024-01-21 11:50:45.626  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2024-01-21 11:50:51.184  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2024-01-21 11:50:55.247  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2024-01-21 11:51:01.592  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
+2024-01-21 11:51:05.461  INFO 12072 --- [ null to remote] o.o.selenium.remote.ProtocolHandshake    : Detected dialect: W3C
 ]]></system-out>
-  <system-err><![CDATA[1705778962174	geckodriver	INFO	Listening on 127.0.0.1:10815
-1705778963019	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofileauGuYn"
+  <system-err><![CDATA[1705834228962	geckodriver	INFO	Listening on 127.0.0.1:49384
+1705834229622	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofiled85qOm"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1705778963717	Marionette	INFO	Marionette enabled
+1705834230000	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1705778965277	Marionette	INFO	Listening on port 58055
-Read port: 58055
-1705778965431	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1705834230552	Marionette	INFO	Listening on port 51771
+Read port: 51771
+1705834230794	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+1705834235081	geckodriver	INFO	Listening on 127.0.0.1:65239
+1705834235593	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofiledJtCcW"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705834235990	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705834236087	Marionette	INFO	Listening on port 51813
+Read port: 51813
+1705834236327	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1705834239215	geckodriver	INFO	Listening on 127.0.0.1:35895
+1705834239707	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofileSl7uAc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705834240044	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705834240123	Marionette	INFO	Listening on port 51841
+Read port: 51841
+1705834240302	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1705834242440	geckodriver	INFO	Listening on 127.0.0.1:13149
+1705834242902	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofilecLeKju"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705834243364	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705834243437	Marionette	INFO	Listening on port 51877
+Read port: 51877
+1705834243632	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+1705834248263	geckodriver	INFO	Listening on 127.0.0.1:11718
+1705834248767	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofileMJla8z"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705834249091	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705834249163	Marionette	INFO	Listening on port 51924
+Read port: 51924
+1705834249349	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+1705834252568	geckodriver	INFO	Listening on 127.0.0.1:59621
+1705834253076	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofileChdIKh"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705834253405	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705834253479	Marionette	INFO	Listening on port 51958
+Read port: 51958
+1705834253693	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
+1705834258072	geckodriver	INFO	Listening on 127.0.0.1:10536
+1705834258575	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofileSCP95u"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705834258910	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705834258982	Marionette	INFO	Listening on port 52004
+Read port: 52004
+1705834259172	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1705834260052	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1705834262065	geckodriver	INFO	Listening on 127.0.0.1:17346
+1705834262538	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\filip\\AppData\\Local\\Temp\\rust_mozprofile8EMHmf"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705834263111	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705834263269	Marionette	INFO	Listening on port 52037
+Read port: 52037
+1705834263672	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1705834266026	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
 console.warn: LoginRecipes: "Falling back to a synchronous message for: http://localhost:8080."
 ]]></system-err>
 </testsuite>

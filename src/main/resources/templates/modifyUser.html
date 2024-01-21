@@ -25,6 +25,22 @@
       top: 5px;
     }
   </style>
+  <script th:inline="javascript">
+    function myFunction () {
+
+      var age = document.getElementById('age').value;
+      var weight = document.getElementById('weight').value;
+      var height = document.getElementById('height').value;
+
+      if(age >= 0 && age <= 100
+              && weight >= 50 && weight <= 200
+              && height >= 1.30 && height <= 2.30){
+        if(confirm("Confirm information change?") === false) {
+          return false;
+        }
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -32,33 +48,17 @@
   <h1 style="margin-left: 10%">Modify information of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/>:</h1>
 </div>
 <br>
-<div style="float:left; display:block; width:40%;">
-    <form action="edit" method="post" style="margin-left: 20%">
+<div style="float:left; display:block; width:40%;" >
+    <form action="edit" method="post" style="margin-left: 20%" onsubmit="return myFunction()">
       <input type="hidden" name="uniqueID" th:value="${person.uniqueID}"><br>
       Age:<input type="number" id="age" min="0" max="100" name="age" th:value="${person.age}"><br><br>
       Weight:<input type="number" id="weight" name="weight" min="50.0" max="200" step="0.01" th:value="${person.weight}">(in kg)<br><br>
       Height:<input type="number" id="height" name="height"min="1.30" max="2.30" step="0.01" th:value="${person.height}">(in cm)<br><br>
-      <input type="submit" value="send" onclick="myFunction()"/>
+      <input type="submit" value="send"/>
     </form>
 </div>
 <div style="float:left; display:block; width:50%;"><br><br>
-  <a href="drugs?" th:href="@{drugs(uniqueID=${person.uniqueID})}" style="margin-left: 10%"> Drugs management </a></td><br>
+  <a href="read" id="clinicFolder" th:href="@{read(uniqueID=${person.uniqueID})}" style="margin-left: 10%"> Back to clinic folder </a></td><br>
 </div>
-<script th:inline="javascript">
-  function myFunction () {
-
-    var age = document.getElementById('age').value;
-    var weight = document.getElementById('weight').value;
-    var height = document.getElementById('height').value;
-
-    if(age >= 0 && age <= 100
-            && weight >= 50 && weight <= 200
-            && height >= 1.30 && height <= 2.30){
-      if(confirm("Confirm information change?") === false) {
-        return false;
-      }
-    }
-  }
-</script>
 </body>
 </html>
