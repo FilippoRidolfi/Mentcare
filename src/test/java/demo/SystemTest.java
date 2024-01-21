@@ -105,7 +105,7 @@ public class SystemTest extends BaseTest{
 
         drugActual.submit();
 
-        int changeDose = 5;
+        int changeDose = 4;
 
         doseModifyPage.enterData(changeDose);
 
@@ -113,7 +113,7 @@ public class SystemTest extends BaseTest{
 
         driver.switchTo().alert().dismiss();
 
-        changeDose = 4;
+        changeDose = 3;
 
         doseModifyPage.enterData(changeDose);
 

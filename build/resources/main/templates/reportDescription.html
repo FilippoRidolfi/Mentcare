@@ -13,7 +13,7 @@
 </div><br><br>
 <h3 style="margin-left: 10%; color: #009688"> Report about <text th:text="${report.drugName}"/> </h3>
 <h4 style="margin-left: 10%; color: #009688"> <text th:text="${report.data.toString()}"/>: </h4><br>
-<p style="margin-left: 10%" th:text="${report.description}"></p>
+<p style="border-style: dashed solid; padding: 3%;border-width: thick; border-color: #009688; margin-left: 10%; margin-right: 30%" th:text="${report.description}"></p>
 <br>
 <br>
 <a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu </a><br><br><br>

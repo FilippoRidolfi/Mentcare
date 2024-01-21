@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.PrePersist;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class AppController {
@@ -29,16 +26,17 @@ public class AppController {
                 "VRDC498468A12", "Mario", "Rossi", 45, (float)1.83, (float)78.15)
         );
         Drug drug = new Drug(
-                "Paracetamol", "N02BE03", "mepha", "compress", "For headache", "VRDC498468A12", 1, 1, 8);
+                "Paracetamol", "N02BE03", "Mepha", "sachet", "The symptomatic treatment of feverish conditions such as influenza", "VRDC498468A12", 1, 1, 4);
 
         Drug drug1 = new Drug(
-                "Voltaren", "N02BE03", "Voltaren", "compress", "For headache", "VRDC498468A12", 1, 1, 8);
+                "Voltadvance", "C02AE08", "Gsk", "compress", "Works by reducing pain and inflammation", "VRDC498468A12", 1, 1, 6);
 
         Drug drug3 = new Drug(
-                "Tachipirina", "N02BE03", "Voltaren", "compress", "For headache", "VRDF40909A", 1, 1, 8);
+                "Yovis", "E04BS02", "Alphasigma", "little bottle", "Probiotics for the intestinal flora", "VRDF40909A", 1, 1, 5);
         Date d = new Date();
+        Date yesterdayDate = new Date(d.getTime() - 24 * 60 * 60 * 1000);
         Report rep = new Report(
-                "Tachipirina", "VRDC498468A12", "Ottimo", d
+                "Paracetamol", "VRDC498468A12", "The patient has been taking the drug Paracetamol for four days. There are clear improvements in health and fever level. At the moment the prescribed medication seems to be working.", yesterdayDate
         );
 
         reportRepository.save(rep);
