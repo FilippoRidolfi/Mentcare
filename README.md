@@ -9,7 +9,7 @@ e i vincoli del suo funzionamento sono:
 1. La dottoressa dovrà avere la possibilità di vedere i dati del paziente ed eventualmente aggiornare l'altezza, il peso e l'età.
 2. La dottoressa dovrà avere la possibilità di accedere alla sezione relativa ai farmaci e visitare i farmaci attualmente prescritti al paziente. Potrà quindi decidere se modificare la dose di quest'ultimi.
 3. La dottoressa dovrà avere la possibilità di aggiungere nuovi farmaci al paziente selezionando il farmaco voluto e modificandone eventualmente la dose.
-4. La dottoressa dovrà avere la possibilità di aggiornare il formulario selezionando un farmaco all'interno del database e modificandone eventualmente il dosaggio.
+4. La dottoressa dovrà avere la possibilità di aggiornare il formulario selezionando un farmaco all'interno del database e modificandone eventualmente il dosaggio. Gli verrà poi chiesto di confermare le modifiche effettuate o di cambiare e tornare alla fase di prescrizione.
 5. La dottoressa dovrà avere la possibilità di visionare i precedenti report che descrivono l'avanzamento della cura del paziente. Potendo osservare precedenti visite e stabilire se la cura sta avendo gli effetti desiderati o meno.
 
 # Scenari
