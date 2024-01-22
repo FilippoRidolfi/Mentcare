@@ -165,6 +165,23 @@ public class AppController {
             return "notfound";
     }
 
+    @RequestMapping("/medicationVerify")
+    public String medicationVerify(@RequestParam(name="uniqueID", required = true) String uniqueID,
+                                      @RequestParam(name="uniqueDrug", required = true) String uniqueDrug,
+                                      Model model){
+        Optional<Person> result = Optional.ofNullable(repository.findByUniqueID(uniqueID));
+        Optional<Drug> drugResult = Optional.ofNullable(drugRepository.findByUniqueID(uniqueDrug));
+        if (result.isPresent() && drugResult.isPresent()){
+            Person person = result.get();
+            Drug drug = drugResult.get();
+            model.addAttribute("person", person);
+            model.addAttribute("drug", drug);
+            return "medicationVerify";
+        }
+        else
+            return "notfound";
+    }
+
     @RequestMapping("/changeFormularyDose")
     public String changeFormularyDose(@RequestParam(name="uniqueID", required = true) String uniqueID,
                             @RequestParam(name="uniqueDrug", required = true) String uniqueDrug,

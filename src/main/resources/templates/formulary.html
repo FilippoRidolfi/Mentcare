@@ -27,7 +27,7 @@
             top: 5px;
         }
     </style>
-    <script>
+    <script script th:inline="javascript">
         $(document).ready(function () {
             $('select').selectize({
                 sortField: 'text'
@@ -41,9 +41,9 @@
     <h1 style="margin-left: 10%">Formulary</h1>
 </div><br><br>
 <div style="float:left; display:block; width:40%;">
-<label style="margin-left: 20%">Select drug:</label>
+<label style="margin-left: 20%">Select medication:</label>
 
-<form method="GET" action="changeFormularyDose" style="width:60%; margin-left: 20%; display:flex">
+<form method="GET" action="medicationVerify" style="width:60%; margin-left: 20%; display:flex">
     <select style="width:75%;" name="uniqueDrug" id="uniqueDrug" class="js-example-basic-single">
         <option th:each="drug : ${drugs}"
                 th:value="${drug.uniqueID}"
@@ -51,11 +51,11 @@
         </option>
     </select>
     <input type="hidden" name="uniqueID" th:value="${person.uniqueID}">
-    <input type="submit" value="Search drug"/>
+    <input type="submit" value="Search medication"/>
 </form>
 </div>
 <div style="float:left; display:block; width:40%;"><br><br>
-<a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu </a><br><br><br>
+<a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to medication management menu </a><br><br><br>
 </div>
 </body>
 </html>

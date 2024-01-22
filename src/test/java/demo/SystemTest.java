@@ -182,6 +182,7 @@ public class SystemTest extends BaseTest{
         DrugPage drugPage = new DrugPage(driver);
         FormularyPage formularyPage = new FormularyPage(driver);
         ActualDrugPage actualDrugPage = new ActualDrugPage(driver);
+        MedicationInformation medInfo = new MedicationInformation(driver);
         ChangeFormularyDose changeFormularyDose = new ChangeFormularyDose(driver);
         ConfirmPrescription confirmPrescription = new ConfirmPrescription(driver);
 
@@ -193,7 +194,11 @@ public class SystemTest extends BaseTest{
 
         formularyPage.submit();
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.urlContains("medicationVerify"));
+
+        medInfo.submit();
+
         wait.until(ExpectedConditions.urlContains("changeFormularyDose"));
 
         Integer changeDose = 3;
@@ -221,6 +226,7 @@ public class SystemTest extends BaseTest{
         ReadPage readPage = new ReadPage(driver);
         DrugPage drugPage = new DrugPage(driver);
         FormularyPage formularyPage = new FormularyPage(driver);
+        MedicationInformation medInfo = new MedicationInformation(driver);
         ChangeFormularyDose changeFormularyDose = new ChangeFormularyDose(driver);
 
         driver.get("http://localhost:8080/");
@@ -231,7 +237,11 @@ public class SystemTest extends BaseTest{
 
         formularyPage.submit();
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.urlContains("medicationVerify"));
+
+        medInfo.submit();
+
         wait.until(ExpectedConditions.urlContains("changeFormularyDose"));
 
         Integer changeDose = 3;

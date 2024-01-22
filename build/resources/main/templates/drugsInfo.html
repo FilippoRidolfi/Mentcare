@@ -20,10 +20,10 @@
 </head>
 <body>
 <div class="w3-container w3-teal" >
-  <h1 style="margin-left: 10%">Add drug <text th:text="${drug.name}"/> to clinic folder of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/></h1>
+  <h1 style="margin-left: 10%">Add medication <text th:text="${drug.name}"/> to clinic folder of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/></h1>
 </div><br><br>
 <div style="float:left; display:block; width:50%;">
-<h3 style="margin-left: 20%; color: #009688"> Drug information: </h3>
+<h3 style="margin-left: 20%; color: #009688"> Medication information: </h3>
 <ul style="margin-left: 20%;">
   <li th:text="'Name: ' + ${drug.name} "> John </li>
   <li th:text="'ATC: ' + ${drug.atc} "> Smith </li>
@@ -44,7 +44,7 @@
     <input id="changeDoseButton"type="submit" value="Change dose and add drug"/>
   </form>
   <br><br>
-  <a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to drugs management menu </a><br><br>
+  <a href="drugs?" style="margin-left: 10%" th:href="@{drugs(uniqueID=${person.uniqueID})}"> Back to medication management menu </a><br><br>
 </div>
 </body>
 </html>

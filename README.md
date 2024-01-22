@@ -9,7 +9,7 @@ e i vincoli del suo funzionamento sono:
 1. La dottoressa dovrà avere la possibilità di vedere i dati del paziente ed eventualmente aggiornare l'altezza, il peso e l'età.
 2. La dottoressa dovrà avere la possibilità di accedere alla sezione relativa ai farmaci e visitare i farmaci attualmente prescritti al paziente. Potrà quindi decidere se modificare la dose di quest'ultimi.
 3. La dottoressa dovrà avere la possibilità di aggiungere nuovi farmaci al paziente selezionando il farmaco voluto e modificandone eventualmente la dose.
-4. La dottoressa dovrà avere la possibilità di aggiornare il formulario selezionando un farmaco all'interno del database e modificandone eventualmente il dosaggio. Gli verrà poi chiesto di confermare le modifiche effettuate o di cambiare e tornare alla fase di prescrizione.
+4. La dottoressa dovrà avere la possibilità di aggiornare il formulario selezionando un farmaco all'interno del database, confermarmarlo e modificare eventualmente il dosaggio. Gli verrà poi chiesto di confermare le modifiche effettuate o di cambiare e tornare alla fase di prescrizione.
 5. La dottoressa dovrà avere la possibilità di visionare i precedenti report che descrivono l'avanzamento della cura del paziente. Potendo osservare precedenti visite e stabilire se la cura sta avendo gli effetti desiderati o meno.
 
 # Scenari
@@ -39,7 +39,8 @@ attualmente prescritti per poter verificare se il farmaco è stato inserito corr
 ## Scenario 4
 La dottoressa dalla cartella clinica del paziente potrà visualizzare, nella parte relativa ai farmaci, la possibilità di accedere al formulario.
 Tramite un menu, digiterà o selezionerà il nome del farmaco che desidera aggiungere e, se presente nel sistema, avrà la possibilità di accede alla pagine relativa alla modifica delle dose.
-Arrivata sulla pagina per modificare la dose la dottoressa avrà la possibilità di vedere tutte le relative informazioni riguardo al farmaco. Potrà modificare la dose sempre rispettando
+Arrivata sulla pagina relativa ai dati del farmaco per poter verificare che la selezione effettuata sia corretta e che voglia effettivamente scegliere quel farmaco. Dopo aver confermato la sua scelta
+varrà indirizzata alla pagina relativa alla dose. La dottoressa potrà modificare la dose sempre rispettando
 il dosaggio definito dal farmaco. Se il dosaggio risulterà inferiore o superiore a quello definito otterrà un messaggio di errore che l'avvertira se il dosaggio è troppo basso o troppo alto.
 Se invece il dosaggio è correttamente inserito gli viene richiesto di confermare la sua scelta tramite pop-up. Se non conferma la richiesta verrà re-indirizzata alla pagina relativa ai farmaci
 se invece conferma il dosaggio verrà portata ad una nuova pagina di riepilogo. Nella pagina di riepilogo potrà confermare la prescrizione e quindi salvarla nel database oppure 

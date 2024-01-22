@@ -31,14 +31,14 @@
 
 <body>
 <div class="w3-container w3-teal" >
-  <h1 style="margin-left: 10%"> Drugs in prescription of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/>:</h1>
+  <h1 style="margin-left: 10%"> Medication in prescription of <text th:text="${person.firstName}"/> <text th:text="${person.lastName}"/>:</h1>
 </div>
 <div style="float:left; display:block; width:50%;">
 <br><br>
-<p style="margin-left: 20%"> See actual drugs in prescription to the patient</p>
-<a href="actualDrugs?" id="actualDrug" th:href="@{actualDrugs(uniqueID=${person.uniqueID})}"> Actual drug </a><br><br><br>
-<p style="margin-left: 20%"> Add new drug for the patient</p>
-<a href="drugsList?" id="newDrug" th:href="@{drugsList(uniqueID=${person.uniqueID})}"> New drug </a><br><br><br>
+<p style="margin-left: 20%"> See actual medication in prescription to the patient</p>
+<a href="actualDrugs?" id="actualDrug" th:href="@{actualDrugs(uniqueID=${person.uniqueID})}"> Actual medication </a><br><br><br>
+<p style="margin-left: 20%"> Add new medication for the patient</p>
+<a href="drugsList?" id="newDrug" th:href="@{drugsList(uniqueID=${person.uniqueID})}"> New medication </a><br><br><br>
 <p style="margin-left: 20%"> Check the formulary </p>
 <a href="formulary?" id="formulary" th:href="@{formulary(uniqueID=${person.uniqueID})}"> Formulary </a><br><br><br>
 <p style="margin-left: 20%"> See the report </p>
