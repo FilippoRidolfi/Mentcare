@@ -11,6 +11,13 @@ public class ActualDrugPage extends PageObject {
     @FindBy(linkText="Modify")
     private WebElement link;
 
+    @FindBy(id="table")
+    private WebElement table;
+
+    public boolean getTableCheck(){
+        return table.getText().isEmpty();
+    }
+
     @FindBy(xpath = "//table//tbody//tr//td[2]")
     private WebElement firstDrugName;
 

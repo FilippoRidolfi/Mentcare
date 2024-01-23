@@ -11,13 +11,13 @@
 <div style="float:left; display:block; width:50%;">
   <h3 style="margin-left: 20%; color: #009688"> Medication information: </h3>
   <ul style="margin-left: 20%;">
-    <li th:text="'Name: ' + ${drug.name} "> John </li>
-    <li th:text="'ATC: ' + ${drug.atc} "> Smith </li>
-    <li th:text="'Company: ' + ${drug.company} "> </li>
-    <li th:text="'Type: ' + ${drug.type} "> </li>
-    <li th:text="'Description: ' + ${drug.description} ">  </li>
-    <li th:text="'Max dose: ' + ${drug.maxDose} ">  </li>
-    <li th:text="'Min dose: ' + ${drug.minDose} ">  </li>
+    <li id="name" th:text="'Name: ' + ${drug.name} ">  </li>
+    <li id="atc" th:text="'ATC: ' + ${drug.atc} ">  </li>
+    <li id="company" th:text="'Company: ' + ${drug.company} "> </li>
+    <li id="type" th:text="'Type: ' + ${drug.type} "> </li>
+    <li id="description" th:text="'Description: ' + ${drug.description} ">  </li>
+    <li id="maxDose" th:text="'Max dose: ' + ${drug.maxDose} ">  </li>
+    <li id="minDose" th:text="'Min dose: ' + ${drug.minDose} ">  </li>
   </ul><br></div>
 <div style="float:left; display:block; width:50%;"><br>
   <form action="changeFormularyDose" method="post">

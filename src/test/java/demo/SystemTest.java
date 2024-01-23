@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.*;
 
 public class SystemTest extends BaseTest{
-
     @Test
     public void firstCheckUserInformation(){
         System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
@@ -21,6 +20,48 @@ public class SystemTest extends BaseTest{
         driver.get("http://localhost:8080/");
 
         assertFalse("Patient information is correct insert", readPage.checkData());
+    }
+
+    @Test
+    public void checkTableActualDrugs(){
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+
+        ReadPage readPage = new ReadPage(driver);
+        DrugPage drugPage = new DrugPage(driver);
+        ActualDrugPage drugActual = new ActualDrugPage(driver);
+
+        driver.get("http://localhost:8080/");
+
+        readPage.submit();
+
+        drugPage.actualDrug();
+
+        assertFalse("Table is not empty", drugActual.getTableCheck());
+    }
+
+    @Test
+    public void checkMedicationInformation(){
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver-v0.33.0-win64/geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+
+        ReadPage readPage = new ReadPage(driver);
+        DrugPage drugPage = new DrugPage(driver);
+        FormularyPage formularyPage = new FormularyPage(driver);
+        MedicationInformation medInfo = new MedicationInformation(driver);
+
+        driver.get("http://localhost:8080/");
+
+        readPage.submit();
+
+        drugPage.formulary();
+
+        formularyPage.submit();
+
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.urlContains("medicationVerify"));
+
+        assertFalse("Medication information is correct inserted", medInfo.checkMedicationInformation());
     }
 
     @Test
@@ -64,6 +105,10 @@ public class SystemTest extends BaseTest{
 
         assertFalse("Patient information is correct insert", readPage.checkData());
 
+        assertNotNull(readPage.age());
+        assertNotNull(readPage.weight());
+        assertNotNull(readPage.height());
+
         String previousAge = readPage.age();
         String previousWeight = readPage.weight();
         String previousHeight = readPage.height();
@@ -104,6 +149,9 @@ public class SystemTest extends BaseTest{
         String drugNameModify = drugActual.firstDrugName();
 
         drugActual.submit();
+
+        assertNotNull(doseModifyPage.getActualDose());
+        assertNotNull(doseModifyPage.getDose());
 
         int changeDose = 4;
 
@@ -252,6 +300,10 @@ public class SystemTest extends BaseTest{
         driver.switchTo().alert().dismiss();
 
         wait.until(ExpectedConditions.urlContains("changeFormularyDose"));
+
+        String URL = driver.getCurrentUrl();
+
+        assertTrue(URL.contains("http://localhost:8080/changeFormularyDose"));
     }
 
     @Test

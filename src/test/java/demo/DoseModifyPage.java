@@ -11,6 +11,16 @@ public class DoseModifyPage extends PageObject {
 
     @FindBy(id ="dose")
     private WebElement dose;
+    @FindBy(id ="actualDose")
+    private WebElement actualDose;
+
+    public String getDose(){
+        return dose.getText();
+    }
+
+    public String getActualDose(){
+        return actualDose.getText();
+    }
 
     public void enterData(Integer dose){
         this.dose.clear();

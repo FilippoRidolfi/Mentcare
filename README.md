@@ -55,21 +55,23 @@ Finita l'osservazione potrà tornare sia alla cartella clinica che alla pagina r
 # Copertura e selezione dei test
 Per verificare la correttezza del codice realizzato sono stati realizzati i seguenti casi di test:
 1. Verifica dell'esistenza dei dati relativi al paziente dal momento della messa in esecuzione del codice. Attraverso un assertFalse ho verificato se tutti i campi relativi all'utente fossero correttamente inseriti
-2. Ho verificato lo scenario relativo alla modifica delle informazioni dell'utente. Dopo aver fatto l'accesso alla sezione relativa ho inserito dei dati casuali (25 anni per l'eta, 80.21kg per il peso e 1.85m per l'altezza)
+2. Verifica all'interno del campo riguardante i farmaci attuali se, inizialmente, sono presenti i valori inseriti di default all'interno della tabella. 
+3. Verifica all'interno della sezione relativo al formulario se i campi del medicinale descritto sono tutti completi, correttamente descritti. 
+4. Ho verificato lo scenario relativo alla modifica delle informazioni dell'utente. Dopo aver fatto l'accesso alla sezione relativa ho inserito dei dati casuali (25 anni per l'eta, 80.21kg per il peso e 1.85m per l'altezza)
 e ho effettuato il submit. Dopo aver accettato la richiesta di conferma da parte dell'alert sono andato a verificare che le informazioni fossero effettivamente cambiate nel modo voluto.  
-3. Ho verificato lo scenario relativo alla modifica delle informazioni dell'utente ma, in questo caso, ho impostato che venisse rifiutata la proposta di conferma da parte dell'alert. 
+5. Ho verificato lo scenario relativo alla modifica delle informazioni dell'utente ma, in questo caso, ho impostato che venisse rifiutata la proposta di conferma da parte dell'alert. 
 Questo mi ha permesso di verificare se il sistema stesse funzionando in modo corretto, facendomi rimanere sulla stessa pagina e sopratutto non modificando i dati inseriti ma non confermati.
 Ho verificato poi tramite assertEquals se i dati fossere correttamente quelli precedeni o se invece erano stati in qualche modo alterati.
-4. Ho testato il corretto funzionamento della funzionalità relativa alle dose attuali. Dopo aver fatto tutta la procedura per poter accedere alla pagina relativa ho inserito una dose
+6. Ho testato il corretto funzionamento della funzionalità relativa alle dose attuali. Dopo aver fatto tutta la procedura per poter accedere alla pagina relativa ho inserito una dose
 casuale ma corretta che rispettasse la dose massima e minima per il farmaco. Ho impostato che il test rifiutasse però la proposta di conferma da parte dell'apposito alert per verificare se in effetti 
 l'utente fosse rimasto nella pagina relativa alla modifica della dose. Ho poi cambiato il valore della dose e a questo punto ho testato la conferma delle modifiche.
 Quindi dopo averle accettate ho verificato che fossere stati aggiunte correttamente al relativo farmaco.
-5. Ho testato lo scenario relativo all'aggiunta di nuovi farmaci. In particolare ho similutato l'ingresso nella sezione apposita, la scelta del nuovo farmaco e la relativa modifica del
+7. Ho testato lo scenario relativo all'aggiunta di nuovi farmaci. In particolare ho similutato l'ingresso nella sezione apposita, la scelta del nuovo farmaco e la relativa modifica del
 dosaggio. Ho inserito inizialmente una dose fuori dai parametri consentiti e ho verificato che in effetti venisse restituito il messaggio di errore: "Dose is outside the safe range. Is too high"
 ho successivamente invece inserito la corretta dose che rispettasse i parametri e ho confermato la scelta nell'apposito alert. Ho controllato infiene che la dose fosse cambiata correttamente per il farmaco indicato.
-6. Ho testato lo scenario relativo all'utilizzo del formulario. Dopo aver fatto l'accesso alla sessione apposita, ho selezionato il farmaco da prescrivere e ho poi modificato la dose con un valore
+8. Ho testato lo scenario relativo all'utilizzo del formulario. Dopo aver fatto l'accesso alla sessione apposita, ho selezionato il farmaco da prescrivere e ho poi modificato la dose con un valore
 accettato dal sistema, confermando poi la scelta sull'alert. Ho poi confermato la prescrizione dopo aver visualizzato il riepilogo finale. Ho utilizzato l'assert equals per verificare che la dose fosse stata modificata correttamente.
-7. Ho testato lo scenario relativo all'utilizzo del formulario. In questo casoc però, rispetto al precedente, ho rifiutato la conferma della dose di farmaco. Ho verificato che in effetti ritornasse alla pagina di cambiamento della dose e 
-che non mi portasse alle pagine successive.
-8. Ho testato la scenario relativo all'utilizzo del report sui test effettuati. Dopo aver effettuato l'accesso alla relativa sezione ho verificato che la scelta di osservare il report di un relativo paziente e di un dato farmaco 
+9. Ho testato lo scenario relativo all'utilizzo del formulario. In questo casoc però, rispetto al precedente, ho rifiutato la conferma della dose di farmaco. Ho verificato che in effetti ritornasse alla pagina di cambiamento della dose e 
+che non mi portasse alle pagine successive. 
+10. Ho testato la scenario relativo all'utilizzo del report sui test effettuati. Dopo aver effettuato l'accesso alla relativa sezione ho verificato che la scelta di osservare il report di un relativo paziente e di un dato farmaco 
 fossero in effetti rispettate nel momento in cui veniva mostrata la pagina con il testo sull'andamento della cura.

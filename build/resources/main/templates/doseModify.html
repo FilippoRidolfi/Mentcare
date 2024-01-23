@@ -64,7 +64,7 @@
   <li th:text="'Description: ' + ${drug.description} ">  </li>
 </ul><br>
 </div><div style="float:left; display:block; width:50%;"><br>
-<p th:text="'Actual dose: ' + ${drug.dose} "></p>
+<p id="actualDose" th:text="'Actual dose: ' + ${drug.dose} "></p>
 <h3> Change dose: </h3>
  <h4> (Limited dosage for security reason)</h4>
 <form action="update" method="post" onsubmit="return conferma()">
